@@ -332,6 +332,13 @@ rcl_publish(
   const void * ros_message,
   rmw_publisher_allocation_t * allocation);
 
+RCL_PUBLIC
+RCL_WARN_UNUSED
+rcl_ret_t rcl_publish_with_priority(
+  const rcl_publisher_t *publisher,
+  const void *ros_message, int64_t priority,
+  rmw_publisher_allocation_t *allocation);
+
 /// Publish a serialized message on a topic using a publisher.
 /**
  * It is the job of the caller to ensure that the type of the serialized message
@@ -412,6 +419,12 @@ rcl_publish_loaned_message(
   const rcl_publisher_t * publisher,
   void * ros_message,
   rmw_publisher_allocation_t * allocation);
+
+RCL_PUBLIC
+RCL_WARN_UNUSED
+rcl_ret_t rcl_publish_loaned_message_with_priority(
+  const rcl_publisher_t *publisher, void *ros_message, int64_t priority,
+  rmw_publisher_allocation_t *allocation);
 
 /// Manually assert that this Publisher is alive (for RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_TOPIC)
 /**
